@@ -1,9 +1,4 @@
-import pandas as pd
-import numpy as np
 from experiment import Experiment
-from scipy.stats import shapiro, levene, ttest_ind, chi2_contingency
-import seaborn as sns
-import matplotlib.pyplot as plt
 
 
 def main():
