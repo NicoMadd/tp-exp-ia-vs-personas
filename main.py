@@ -1,5 +1,6 @@
 import pandas as pd
 import numpy as np
+from analyzers.response_time_analizer import ResponseTimeAnalyzer
 from constants import *
 from scipy.stats import shapiro, levene, ttest_ind, chi2_contingency
 import seaborn as sns
@@ -10,16 +11,14 @@ def clean_data(data: pd.DataFrame) -> pd.DataFrame:
     data = data.dropna()
     data = data.drop_duplicates()
 
-    # Remove outliers above p99 and below p1
-    data = data[data[RESPONSE_TIME_COLUMN] < data[RESPONSE_TIME_COLUMN].quantile(0.99)]
-    data = data[data[RESPONSE_TIME_COLUMN] > data[RESPONSE_TIME_COLUMN].quantile(0.01)]
+    # Remove outliers that differ more than 3 standard deviations from the mean
+    data = data[data[RESPONSE_TIME_COLUMN] < data[RESPONSE_TIME_COLUMN].mean() + 3 * data[RESPONSE_TIME_COLUMN].std()]
+    data = data[data[RESPONSE_TIME_COLUMN] > data[RESPONSE_TIME_COLUMN].mean() - 3 * data[RESPONSE_TIME_COLUMN].std()]
 
     ## Remove non spanish speakers
     data = data[data[NATIVE_LANGUAGE_COLUMN] == "Español"]
 
     # Remove rows that differ from defined test conditions
-
-
     return data
 
 def analyze_identification_hypothesis(data: pd.DataFrame) -> None:
@@ -50,32 +49,8 @@ def analyze_identification_hypothesis(data: pd.DataFrame) -> None:
         print("Fail to reject the null hypothesis. There is no significant difference between the two groups.")
         print("The two groups have the same hit rate.")
 
-def analyze_response_time_hypothesis(pp_data: pd.DataFrame, pia_data: pd.DataFrame) -> None:
-    print("Analyzing response time hypothesis...")
+    # Mandar mail para ver que hacer con esto. Chi2 parece ser la mejor opción.
 
-    pp_response_time = pp_data[RESPONSE_TIME_COLUMN].to_numpy()
-    pia_response_time = pia_data[RESPONSE_TIME_COLUMN].to_numpy()
-
-    # Test normality of response time using Shapiro-Wilk
-    w, p = shapiro(pp_response_time)
-    print(f"Shapiro-Wilk test statistic for PP response time: {w:.3f}, p={p:.4f}")
-    if p < 0.05:
-        print("Is not normally distributed")
-    else:
-        print("Is normally distributed")
-
-    w, p = shapiro(pia_response_time)
-    print(f"Shapiro-Wilk test statistic for P-IA response time: {w:.3f}, p={p:.4f}")
-    if p < 0.05:
-        print("Is not normally distributed")
-    else:
-        print("Is normally distributed")
-
-
-    print("Values:")
-    print(f"PP response time: {pp_response_time}")
-    print(f"P-IA response time: {pia_response_time}")
-   
 
 
 
@@ -125,7 +100,8 @@ def main():
     #analyze_identification_hypothesis(data)
 
     print("--------------------------------")
-    analyze_response_time_hypothesis(pp_dataset, pia_dataset)
+    response_time_analyzer = ResponseTimeAnalyzer(pp_dataset[RESPONSE_TIME_COLUMN], pia_dataset[RESPONSE_TIME_COLUMN])
+    response_time_analyzer.analyze()
 
     print("--------------------------------")
     #analyze_correlation_between_variables(data)
