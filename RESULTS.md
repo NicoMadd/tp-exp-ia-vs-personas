@@ -25,7 +25,7 @@
 ### Análisis de Hipótesis
 - **Chi2**: 2.490
 - **p-valor**: 0.1146
-- **Conclusión**: No hay una diferencia significativa entre los dos grupos. No rechazamos la hipótesis nula.
+- **Conclusión**: No hay una diferencia significativa entre los dos grupos. No se rechaza la hipótesis nula.
 
 ## Análisis de Tiempo de Respuesta
 
@@ -52,7 +52,7 @@
 #### Prueba T
 - **Estadístico de la prueba T**: -0.871
 - **p-valor**: 0.3854
-- **Conclusión**: No hay una diferencia significativa entre los dos grupos. No rechazamos la hipótesis nula.
+- **Conclusión**: No hay una diferencia significativa entre los dos grupos. No se rechaza la hipótesis nula.
 
 ## Conclusiones del Análisis
 
