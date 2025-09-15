@@ -112,3 +112,7 @@ En general, las correlaciones entre las variables fueron débiles, lo que sugier
 ## Resultados
 
 Para más detalles sobre los resultados del experimento, consulta el archivo [RESULTS.md](RESULTS.md).
+
+## Datos
+
+Para más detalles sobre los datos y sus visualizaciones, consulta el archivo [DATA.md](DATA.md).
