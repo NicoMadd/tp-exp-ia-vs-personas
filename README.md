@@ -97,18 +97,6 @@ El análisis de correlaciones reveló algunas relaciones interesantes:
 
 En general, las correlaciones entre las variables fueron débiles, lo que sugiere que no hay relaciones lineales fuertes entre ellas en este conjunto de datos.
 
-## Visualizaciones
-
-### Análisis de Identificación
-![Análisis de Identificación](images/identification_analysis.png)
-
-### Análisis de Tiempo de Respuesta
-![Métricas de Tiempo de Respuesta](images/response_time_metrics.png)
-![Distribución del Tiempo de Respuesta](images/response_time_distribution.png)
-
-### Análisis de Correlaciones
-![Mapa de Calor de Correlaciones](images/correlation_heatmap.png)
-
 ## Resultados
 
 Para más detalles sobre los resultados del experimento, consulta el archivo [RESULTS.md](RESULTS.md).
