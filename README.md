@@ -108,3 +108,7 @@ En general, las correlaciones entre las variables fueron débiles, lo que sugier
 
 ### Análisis de Correlaciones
 ![Mapa de Calor de Correlaciones](images/correlation_heatmap.png)
+
+## Resultados
+
+Para más detalles sobre los resultados del experimento, consulta el archivo [RESULTS.md](RESULTS.md).
