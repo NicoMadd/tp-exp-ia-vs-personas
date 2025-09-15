@@ -28,7 +28,7 @@ class IdentificationAnalyzer:
         Describe the identification answers (SI/NO) in both datasets.
         Shows the count and percentage of SI and NO answers.
         """
-        print("Describing identification answers (SI/NO) in datasets...")
+        print("Describiendo respuestas de identificación (SI/NO) en los conjuntos de datos...")
         print_empty_line()
 
         pp_si, pp_si_pct, pp_no, pp_no_pct, pp_total = self._count_si_no(self.pp_data)
@@ -39,7 +39,7 @@ class IdentificationAnalyzer:
             ["NO", pp_no, f"{pp_no_pct:.1f}%", pia_no, f"{pia_no_pct:.1f}%"],
             ["Total", pp_total, "", pia_total, ""]
         ]
-        print(tabulate(metrics, headers=["Answer", "PP count", "PP %", "P-IA count", "P-IA %"]))
+        print(tabulate(metrics, headers=["Respuesta", "Conteo PP", "% PP", "Conteo P-IA", "% P-IA"]))
         print_empty_line()
     
     def create_contingency_table(self) -> np.array:
@@ -52,7 +52,7 @@ class IdentificationAnalyzer:
             ["PP", cont_table[0][0], cont_table[0][1]],
             ["PIA", cont_table[1][0], cont_table[1][1]]
         ]
-        print(tabulate(printable_contingency_table, headers=["Group", "SI", "NO"]))
+        print(tabulate(printable_contingency_table, headers=["Grupo", "SI", "NO"]))
         print_empty_line()
         return cont_table
 
@@ -64,7 +64,7 @@ class IdentificationAnalyzer:
 
         else use fisher exact test.
         """
-        print("Analyzing identification hypothesis...")
+        print("Analizando la hipótesis de identificación...")
 
         if len(self.pp_data) > 5 and len(self.pia_data) > 5:
             print_empty_line()
@@ -74,19 +74,19 @@ class IdentificationAnalyzer:
             is_significant_diff = self.analyze_identification_hypothesis_fisher_exact(contingency_table)
 
         if is_significant_diff:
-            print("There is a significant difference between the two groups.")
-            print("The two groups have different hit rates.")
-            print("We reject the null hypothesis.")
+            print("Hay una diferencia significativa entre los dos grupos.")
+            print("Los dos grupos tienen diferentes tasas de acierto.")
+            print("Rechazamos la hipótesis nula.")
         else:
-            print("There is no significant difference between the two groups.")
-            print("We fail to reject the null hypothesis.")
+            print("No hay una diferencia significativa entre los dos grupos.")
+            print("No se rechaza la hipótesis nula.")
         print_empty_line()
 
     def analyze_identification_hypothesis_chi_square(self, contingency_table: np.array):
         """
         Analyze the identification hypothesis using chi-square test.
         """
-        print("Analyzing identification hypothesis using chi-square test...")
+        print("Analizando la hipótesis de identificación usando la prueba de chi-cuadrado...")
         print_empty_line()
 
         chi2, p, dof, _ = chi2_contingency(contingency_table, correction=False)
@@ -98,7 +98,7 @@ class IdentificationAnalyzer:
         """
         Analyze the identification hypothesis using fisher exact test.
         """
-        print("Analyzing identification hypothesis using fisher exact test...")
+        print("Analizando la hipótesis de identificación usando la prueba exacta de Fisher...")
         print_empty_line()
 
         oddsratio, p = fisher_exact(contingency_table)

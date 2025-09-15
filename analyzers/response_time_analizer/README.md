@@ -1,45 +1,45 @@
-# Response Time Analyzer
+# Analizador de Tiempo de Respuesta
 
-The `ResponseTimeAnalyzer` is a tool designed to analyze response time data, providing insights into the distribution and differences between two datasets. It includes functionality for cleaning data, describing dataset metrics, and testing hypotheses about response times.
+El `ResponseTimeAnalyzer` es una herramienta diseñada para analizar datos de tiempo de respuesta, proporcionando información sobre la distribución y diferencias entre dos conjuntos de datos. Incluye funcionalidades para limpiar datos, describir métricas del conjunto de datos y probar hipótesis sobre los tiempos de respuesta.
 
-## Features
+## Características
 
-- **Data Cleaning**: Removes outliers from the datasets that differ more than 2 standard deviations from the mean.
-- **Dataset Description**: Describes the dataset metrics such as median, size, average, minimum, maximum, and standard deviation.
-- **Hypothesis Testing**: Tests the hypothesis regarding response time differences using appropriate statistical tests.
+- **Limpieza de Datos**: Elimina valores atípicos de los conjuntos de datos que difieren más de 2 desviaciones estándar de la media.
+- **Descripción del Conjunto de Datos**: Describe las métricas del conjunto de datos como la mediana, tamaño, promedio, mínimo, máximo y desviación estándar.
+- **Pruebas de Hipótesis**: Prueba la hipótesis sobre las diferencias de tiempo de respuesta utilizando pruebas estadísticas adecuadas.
 
-## Usage
+## Uso
 
-1. **Initialization**: Create an instance of `ResponseTimeAnalyzer` by passing two pandas Series objects representing the datasets to be analyzed.
+1. **Inicialización**: Crea una instancia de `ResponseTimeAnalyzer` pasando dos objetos Series de pandas que representan los conjuntos de datos a analizar.
    ```python
    analyzer = ResponseTimeAnalyzer(pp_data, pia_data)
    ```
 
-2. **Analysis**: Call the `analyze` method to perform a full analysis, which includes cleaning the datasets, describing them, and analyzing the hypothesis.
+2. **Análisis**: Llama al método `analyze` para realizar un análisis completo, que incluye limpiar los conjuntos de datos, describirlos y analizar la hipótesis.
    ```python
    analyzer.analyze()
    ```
 
-## Methods
+## Métodos
 
-- `clean_datasets()`: Cleans the datasets by removing outliers.
-- `describe_datasets()`: Prints a description of the datasets.
-- `analyze_response_time_hypothesis()`: Analyzes the hypothesis using the appropriate statistical test.
+- `clean_datasets()`: Limpia los conjuntos de datos eliminando valores atípicos.
+- `describe_datasets()`: Imprime una descripción de los conjuntos de datos.
+- `analyze_response_time_hypothesis()`: Analiza la hipótesis utilizando la prueba estadística adecuada.
 
-## Statistical Tests
+## Pruebas Estadísticas
 
-- **Shapiro-Wilk Test**: Tests the normality of the datasets.
-- **T-Test**: Used if both datasets are normally distributed.
-- **Mann-Whitney U Test**: Used if one or both datasets are not normally distributed.
+- **Prueba de Shapiro-Wilk**: Prueba la normalidad de los conjuntos de datos.
+- **Prueba T**: Se utiliza si ambos conjuntos de datos son distribuidos normalmente.
+- **Prueba de Mann-Whitney U**: Se utiliza si uno o ambos conjuntos de datos no son distribuidos normalmente.
 
-## Dependencies
+## Dependencias
 
 - `pandas`
 - `numpy`
 - `scipy`
 - `tabulate`
 
-Ensure these packages are installed in your Python environment to use the `ResponseTimeAnalyzer`. You can install them using pip:
+Asegúrate de que estos paquetes estén instalados en tu entorno de Python para usar el `ResponseTimeAnalyzer`. Puedes instalarlos usando pip:
 ```bash
 pip install pandas numpy scipy tabulate
 ```

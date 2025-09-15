@@ -33,7 +33,7 @@ class ResponseTimeAnalyzer:
         Describe the dataset metrics using tabulate library.
         Shows the median, size, avg, min, max and std.
         """
-        print("Describing datasets...")
+        print("Describiendo conjuntos de datos...")
         print_empty_line()
 
         metrics = [
@@ -44,14 +44,14 @@ class ResponseTimeAnalyzer:
             ["Max", np.max(self.pp_data), np.max(self.pia_data)],
             ["Std", np.std(self.pp_data), np.std(self.pia_data)]
         ]
-        print(tabulate(metrics, headers=["Metric", "PP dataset", "P-IA dataset"]))
+        print(tabulate(metrics, headers=["Métrica", "Conjunto de Datos PP", "Conjunto de Datos P-IA"]))
         print_empty_line()
 
     def test_normality_of_response_time(self) -> None:
         """
         Test the normality of the response time using Shapiro-Wilk test.
         """
-        print("Testing normality of response time...")
+        print("Probando la normalidad del tiempo de respuesta...")
         print_empty_line()
 
         both_normal_datasets = True
@@ -91,7 +91,7 @@ class ResponseTimeAnalyzer:
         Analyze the response time using t-test.
         """
         t, p = ttest_ind(self.pp_data, self.pia_data)
-        print(f"T-test statistic: {t:.3f}, p={p:.4f}")
+        print(f"Estadístico de la prueba T: {t:.3f}, p={p:.4f}")
         return p < 0.05
 
     def analyze_response_time_mann_whitney_u_test(self) -> bool:
@@ -99,14 +99,14 @@ class ResponseTimeAnalyzer:
         Analyze the response time using Mann-Whitney U test.
         """
         u, p = mannwhitneyu(self.pp_data, self.pia_data)
-        print(f"Mann-Whitney U test statistic: {u:.3f}, p={p:.4f}")
+        print(f"Estadístico de la prueba de Mann-Whitney U: {u:.3f}, p={p:.4f}")
         return p < 0.05
 
     def analyze_response_time_hypothesis(self) -> None:
         """
         Analyze the response time hypothesis.
         """
-        print("Analyzing Response Time Hypothesis...")
+        print("Analizando la hipótesis de tiempo de respuesta...")
         print_empty_line()
 
         both_normal_datasets = self.test_normality_of_response_time()
@@ -115,20 +115,20 @@ class ResponseTimeAnalyzer:
         print_empty_line()
 
         if both_normal_datasets:
-            print("Using t-test...")
+            print("Usando la prueba T...")
             print_empty_line()
             is_significant_diff = self.analyze_response_time_t_test()
         else:
-            print("Using Mann-Whitney U test...")
+            print("Usando la prueba de Mann-Whitney U...")
             print_empty_line()
             is_significant_diff = self.analyze_response_time_mann_whitney_u_test()
 
         if is_significant_diff:
-            print("There is a significant difference between the two groups.")
-            print("The differences in response time are statistically significant and differ.")
-            print("We reject the null hypothesis.")
+            print("Hay una diferencia significativa entre los dos grupos.")
+            print("Las diferencias en el tiempo de respuesta son estadísticamente significativas y difieren.")
+            print("Rechazamos la hipótesis nula.")
         else:
-            print("There is no significant difference between the two groups.")
-            print("We fail to reject the null hypothesis.")
+            print("No hay una diferencia significativa entre los dos grupos.")
+            print("No se rechaza la hipótesis nula.")
 
         print_empty_line()

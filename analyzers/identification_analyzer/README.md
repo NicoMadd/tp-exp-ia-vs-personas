@@ -1,44 +1,44 @@
-# Identification Analyzer
+# Analizador de Identificación
 
-The `IdentificationAnalyzer` is a tool designed to analyze identification data, specifically focusing on the responses categorized as "SI" (yes) and "NO" (no). It provides statistical insights into the data and tests hypotheses regarding the differences between two datasets.
+El `IdentificationAnalyzer` es una herramienta diseñada para analizar datos de identificación, centrándose específicamente en las respuestas categorizadas como "SI" (sí) y "NO" (no). Proporciona información estadística sobre los datos y prueba hipótesis sobre las diferencias entre dos conjuntos de datos.
 
-## Features
+## Características
 
-- **Data Description**: Describes the identification answers in both datasets, showing the count and percentage of "SI" and "NO" answers.
-- **Contingency Table**: Creates a contingency table from the identification answers.
-- **Hypothesis Analysis**: Analyzes the identification hypothesis using either the chi-square test or Fisher's exact test, depending on the sample size.
+- **Descripción de Datos**: Describe las respuestas de identificación en ambos conjuntos de datos, mostrando el conteo y porcentaje de respuestas "SI" y "NO".
+- **Tabla de Contingencia**: Crea una tabla de contingencia a partir de las respuestas de identificación.
+- **Análisis de Hipótesis**: Analiza la hipótesis de identificación utilizando la prueba de chi-cuadrado o la prueba exacta de Fisher, dependiendo del tamaño de la muestra.
 
-## Usage
+## Uso
 
-1. **Initialization**: Create an instance of `IdentificationAnalyzer` by passing two pandas Series objects representing the datasets to be analyzed.
+1. **Inicialización**: Crea una instancia de `IdentificationAnalyzer` pasando dos objetos Series de pandas que representan los conjuntos de datos a analizar.
    ```python
    analyzer = IdentificationAnalyzer(pp_data, pia_data)
    ```
 
-2. **Analysis**: Call the `analyze` method to perform a full analysis, which includes describing the datasets, creating a contingency table, and analyzing the hypothesis.
+2. **Análisis**: Llama al método `analyze` para realizar un análisis completo, que incluye describir los conjuntos de datos, crear una tabla de contingencia y analizar la hipótesis.
    ```python
    analyzer.analyze()
    ```
 
-## Methods
+## Métodos
 
-- `describe_datasets()`: Prints a description of the datasets.
-- `create_contingency_table()`: Returns a contingency table as a numpy array.
-- `analyze_identification_hypothesis(contingency_table)`: Analyzes the hypothesis using the appropriate statistical test.
+- `describe_datasets()`: Imprime una descripción de los conjuntos de datos.
+- `create_contingency_table()`: Devuelve una tabla de contingencia como un array de numpy.
+- `analyze_identification_hypothesis(contingency_table)`: Analiza la hipótesis utilizando la prueba estadística adecuada.
 
-## Statistical Tests
+## Pruebas Estadísticas
 
-- **Chi-Square Test**: Used when both datasets have more than 5 samples.
-- **Fisher's Exact Test**: Used when one or both datasets have 5 or fewer samples.
+- **Prueba de Chi-Cuadrado**: Se utiliza cuando ambos conjuntos de datos tienen más de 5 muestras.
+- **Prueba Exacta de Fisher**: Se utiliza cuando uno o ambos conjuntos de datos tienen 5 o menos muestras.
 
-## Dependencies
+## Dependencias
 
 - `pandas`
 - `numpy`
 - `scipy`
 - `tabulate`
 
-Ensure these packages are installed in your Python environment to use the `IdentificationAnalyzer`. You can install them using pip:
+Asegúrate de que estos paquetes estén instalados en tu entorno de Python para usar el `IdentificationAnalyzer`. Puedes instalarlos usando pip:
 ```bash
 pip install pandas numpy scipy tabulate
 ```
