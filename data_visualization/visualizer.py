@@ -43,3 +43,35 @@ class Visualizer:
         plt.ylabel('Conteo')
         plt.savefig('images/educacion.png', dpi=300, bbox_inches='tight')
         plt.show()
+
+    def plot_all(self):
+        fig, axes = plt.subplots(2, 2, figsize=(14, 10))
+        fig.suptitle('Visualización de Datos', fontsize=16)
+
+        # Plot Age Distribution
+        sns.histplot(self.data['edad'], bins=10, kde=True, color='skyblue', ax=axes[0, 0])
+        axes[0, 0].set_title('Distribución de Edad')
+        axes[0, 0].set_xlabel('Edad')
+        axes[0, 0].set_ylabel('Frecuencia')
+
+        # Plot Familiarity with AI
+        sns.countplot(data=self.data, x='familiaridad_IA_1a5', palette='viridis', ax=axes[0, 1])
+        axes[0, 1].set_title('Familiaridad con IA')
+        axes[0, 1].set_xlabel('Familiaridad (1 a 5)')
+        axes[0, 1].set_ylabel('Conteo')
+
+        # Plot Digital Literacy
+        sns.countplot(data=self.data, x='alfabetización_digital_1a5', palette='magma', ax=axes[1, 0])
+        axes[1, 0].set_title('Alfabetización Digital')
+        axes[1, 0].set_xlabel('Alfabetización (1 a 5)')
+        axes[1, 0].set_ylabel('Conteo')
+
+        # Plot Education
+        sns.countplot(data=self.data, x='educación_1a5', palette='coolwarm', ax=axes[1, 1])
+        axes[1, 1].set_title('Educación')
+        axes[1, 1].set_xlabel('Educación (1 a 5)')
+        axes[1, 1].set_ylabel('Conteo')
+
+        plt.tight_layout(rect=[0, 0.03, 1, 0.95])
+        plt.savefig('images/all_visualizations.png', dpi=300, bbox_inches='tight')
+        plt.show()

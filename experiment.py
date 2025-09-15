@@ -27,10 +27,7 @@ class Experiment:
 
         # Use Visualizer class for plotting
         visualizer = Visualizer(self.data)
-        visualizer.plot_age_distribution()
-        visualizer.plot_familiarity_with_ai()
-        visualizer.plot_digital_literacy()
-        visualizer.plot_education()
+        visualizer.plot_all()
 
     def describe_dataset(self, data: pd.DataFrame) -> None:
         print("Describiendo conjunto de datos...")
