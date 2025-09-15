@@ -54,6 +54,18 @@
 - **p-valor**: 0.3854
 - **Conclusión**: No hay una diferencia significativa entre los dos grupos. No se rechaza la hipótesis nula.
 
+## Visualizaciones
+
+### Análisis de Identificación
+![Análisis de Identificación](images/identification_analysis.png)
+
+### Análisis de Tiempo de Respuesta
+![Métricas de Tiempo de Respuesta](images/response_time_metrics.png)
+![Distribución del Tiempo de Respuesta](images/response_time_distribution.png)
+
+### Análisis de Correlaciones
+![Mapa de Calor de Correlaciones](images/correlation_heatmap.png)
+
 ## Conclusiones del Análisis
 
 ### Análisis de Tiempo de Respuesta
@@ -68,15 +80,3 @@ El análisis de correlaciones reveló algunas relaciones interesantes:
 - **Familiaridad con IA y Percepción de Humanidad**: Se observó una correlación negativa débil, indicando que una mayor familiaridad con IA podría estar asociada con una menor percepción de humanidad en las interacciones.
 
 En general, las correlaciones entre las variables fueron débiles, lo que sugiere que no hay relaciones lineales fuertes entre ellas en este conjunto de datos.
-
-## Visualizaciones
-
-### Análisis de Identificación
-![Análisis de Identificación](images/identification_analysis.png)
-
-### Análisis de Tiempo de Respuesta
-![Métricas de Tiempo de Respuesta](images/response_time_metrics.png)
-![Distribución del Tiempo de Respuesta](images/response_time_distribution.png)
-
-### Análisis de Correlaciones
-![Mapa de Calor de Correlaciones](images/correlation_heatmap.png)
