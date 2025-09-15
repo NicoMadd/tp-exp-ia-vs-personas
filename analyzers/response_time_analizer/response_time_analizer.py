@@ -75,7 +75,7 @@ class ResponseTimeAnalyzer:
 
         # Save plot
         os.makedirs('images', exist_ok=True)
-        plt.savefig('images/response_time_metrics.png')
+        plt.savefig('images/response_time_metrics.png', dpi=300, bbox_inches='tight')
 
         plt.show()
 
@@ -86,7 +86,7 @@ class ResponseTimeAnalyzer:
         ax.set_ylabel('Tiempo de Respuesta (ms)')
 
         # Save box plot
-        plt.savefig('images/response_time_distribution.png')
+        plt.savefig('images/response_time_distribution.png', dpi=300, bbox_inches='tight')
 
         plt.show()
 

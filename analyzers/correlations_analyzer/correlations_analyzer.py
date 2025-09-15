@@ -43,5 +43,5 @@ class CorrelationsAnalyzer:
         sns.heatmap(correlation_matrix, annot=True, cmap="coolwarm", fmt=".2f")
         plt.title('Mapa de Calor de Correlaciones')
         # Save heatmap
-        plt.savefig('images/correlation_heatmap.png')
+        plt.savefig('images/correlation_heatmap.png', dpi=300, bbox_inches='tight')
         plt.show()

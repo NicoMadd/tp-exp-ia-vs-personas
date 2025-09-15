@@ -70,7 +70,7 @@ class IdentificationAnalyzer:
 
         # Save plot
         os.makedirs('images', exist_ok=True)
-        plt.savefig('images/identification_analysis.png')
+        plt.savefig('images/identification_analysis.png', dpi=300, bbox_inches='tight')
 
         plt.show()
     
