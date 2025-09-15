@@ -4,6 +4,7 @@ from analyzers.identification_analyzer import IdentificationAnalyzer
 from analyzers.correlations_analyzer import CorrelationsAnalyzer
 from utils.utils import print_separator
 from constants import *
+from data_visualization.visualizer import Visualizer
 
 
 class Experiment:
@@ -23,6 +24,13 @@ class Experiment:
     def describe(self):
         print_separator()
         self.describe_dataset(self.data)
+
+        # Use Visualizer class for plotting
+        visualizer = Visualizer(self.data)
+        visualizer.plot_age_distribution()
+        visualizer.plot_familiarity_with_ai()
+        visualizer.plot_digital_literacy()
+        visualizer.plot_education()
 
     def describe_dataset(self, data: pd.DataFrame) -> None:
         print("Describiendo conjunto de datos...")
