@@ -9,8 +9,8 @@ from utils.utils import print_separator, print_empty_line
 class ResponseTimeAnalyzer:
 
     def __init__(self, pp_data: pd.Series, pia_data: pd.Series):
-        self.pp_data = pp_data.to_numpy()
-        self.pia_data = pia_data.to_numpy()
+        self.pp_data: np.array = pp_data.to_numpy()
+        self.pia_data: np.array = pia_data.to_numpy()
 
     def analyze(self):
         self.clean_datasets()
@@ -21,7 +21,7 @@ class ResponseTimeAnalyzer:
         """
         Clean the datasets from outliers.
         """
-        # Remove outliers that differ more than 3 standard deviations from the mean
+        # Remove outliers that differ more than 2 standard deviations from the mean
         self.pp_data = self.pp_data[self.pp_data < self.pp_data.mean() + 2 * self.pp_data.std()]
         self.pp_data = self.pp_data[self.pp_data > self.pp_data.mean() - 2 * self.pp_data.std()]
         self.pia_data = self.pia_data[self.pia_data < self.pia_data.mean() + 2 * self.pia_data.std()]
