@@ -1,5 +1,43 @@
 # Experimento HCI – Detección de IA vs Persona (Tarea de Negociación)
 
+## Configuración de ambiente
+
+### Requisitos
+- Python 3.10
+
+### Instalación
+1. Clona el repositorio:
+   ```bash
+   git clone <URL_DEL_REPOSITORIO>
+   cd tp-exp-ia-vs-personas
+   ```
+
+2. Crea un entorno virtual:
+   ```bash
+   python3.10 -m venv .venv
+   ```
+
+3. Activa el entorno virtual:
+   - En macOS/Linux:
+     ```bash
+     source .venv/bin/activate
+     ```
+   - En Windows:
+     ```bash
+     .venv\Scripts\activate
+     ```
+
+4. Instala las dependencias:
+   ```bash
+   pip install -r requirements.txt
+   ```
+
+### Como ejecutar
+Para ejecutar el proyecto, utiliza el siguiente comando:
+```bash
+python main.py
+```
+
 ## Objetivo General
 Este experimento busca determinar si las personas son capaces de identificar correctamente si su contraparte en una interacción de negociación breve es un ser humano o una inteligencia artificial. Además, pretende explorar qué factores como el estilo de respuesta, la velocidad de contestación o la forma de argumentar influyen en dicha capacidad de detección. Permitirá profundizar en la interacción de qué tan perceptible es la interacción con modelos agenticos en situaciones cotidianas o comunes.
 
