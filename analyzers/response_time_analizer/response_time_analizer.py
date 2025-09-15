@@ -1,7 +1,7 @@
 import pandas as pd
 import numpy as np
 from scipy.stats import mannwhitneyu, shapiro, ttest_ind
-from constants import *
+from utils.constants import *
 from tabulate import tabulate
 from utils.utils import print_separator, print_empty_line
 import matplotlib.pyplot as plt

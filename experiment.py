@@ -3,7 +3,7 @@ from analyzers.response_time_analizer import ResponseTimeAnalyzer
 from analyzers.identification_analyzer import IdentificationAnalyzer
 from analyzers.correlations_analyzer import CorrelationsAnalyzer
 from utils.utils import print_separator
-from constants import *
+from utils.constants import *
 from data_visualization.visualizer import Visualizer
 
 
