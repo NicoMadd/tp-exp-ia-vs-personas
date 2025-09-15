@@ -41,4 +41,7 @@ class CorrelationsAnalyzer:
 
         # plot graph of correlation between variables
         sns.heatmap(correlation_matrix, annot=True, cmap="coolwarm", fmt=".2f")
+        plt.title('Mapa de Calor de Correlaciones')
+        # Save heatmap
+        plt.savefig('images/correlation_heatmap.png')
         plt.show()

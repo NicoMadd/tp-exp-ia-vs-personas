@@ -4,6 +4,8 @@ from scipy.stats import mannwhitneyu, shapiro, ttest_ind
 from constants import *
 from tabulate import tabulate
 from utils.utils import print_separator, print_empty_line
+import matplotlib.pyplot as plt
+import os
 
 
 class ResponseTimeAnalyzer:
@@ -46,6 +48,47 @@ class ResponseTimeAnalyzer:
         ]
         print(tabulate(metrics, headers=["Métrica", "Conjunto de Datos PP", "Conjunto de Datos P-IA"]))
         print_empty_line()
+
+        # Plotting
+        labels = ['Mediana', 'Tamaño', 'Promedio', 'Mínimo', 'Máximo', 'Desv. Estándar']
+        pp_metrics = [np.median(self.pp_data), len(self.pp_data), np.mean(self.pp_data), np.min(self.pp_data), np.max(self.pp_data), np.std(self.pp_data)]
+        pia_metrics = [np.median(self.pia_data), len(self.pia_data), np.mean(self.pia_data), np.min(self.pia_data), np.max(self.pia_data), np.std(self.pia_data)]
+
+        x = np.arange(len(labels))  # the label locations
+        width = 0.35  # the width of the bars
+
+        fig, ax = plt.subplots()
+        rects1 = ax.bar(x - width/2, pp_metrics, width, label='PP')
+        rects2 = ax.bar(x + width/2, pia_metrics, width, label='P-IA')
+
+        # Add some text for labels, title and custom x-axis tick labels, etc.
+        ax.set_ylabel('Valores')
+        ax.set_title('Métricas por grupo')
+        ax.set_xticks(x)
+        ax.set_xticklabels(labels)
+        ax.legend()
+
+        ax.bar_label(rects1, padding=3)
+        ax.bar_label(rects2, padding=3)
+
+        fig.tight_layout()
+
+        # Save plot
+        os.makedirs('images', exist_ok=True)
+        plt.savefig('images/response_time_metrics.png')
+
+        plt.show()
+
+        # Box Plot
+        fig, ax = plt.subplots()
+        ax.boxplot([self.pp_data, self.pia_data], labels=['PP', 'P-IA'])
+        ax.set_title('Distribución del Tiempo de Respuesta')
+        ax.set_ylabel('Tiempo de Respuesta (ms)')
+
+        # Save box plot
+        plt.savefig('images/response_time_distribution.png')
+
+        plt.show()
 
     def test_normality_of_response_time(self) -> None:
         """

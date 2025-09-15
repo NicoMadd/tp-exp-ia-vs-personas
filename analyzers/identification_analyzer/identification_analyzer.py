@@ -3,6 +3,8 @@ import numpy as np
 from tabulate import tabulate
 from scipy.stats import chi2_contingency, fisher_exact
 from utils.utils import print_empty_line
+import matplotlib.pyplot as plt
+import os
 
 class IdentificationAnalyzer:
 
@@ -41,6 +43,36 @@ class IdentificationAnalyzer:
         ]
         print(tabulate(metrics, headers=["Respuesta", "Conteo PP", "% PP", "Conteo P-IA", "% P-IA"]))
         print_empty_line()
+
+        # Plotting
+        labels = ['SI', 'NO']
+        pp_counts = [pp_si, pp_no]
+        pia_counts = [pia_si, pia_no]
+
+        x = np.arange(len(labels))  # the label locations
+        width = 0.35  # the width of the bars
+
+        fig, ax = plt.subplots()
+        rects1 = ax.bar(x - width/2, pp_counts, width, label='PP')
+        rects2 = ax.bar(x + width/2, pia_counts, width, label='P-IA')
+
+        # Add some text for labels, title and custom x-axis tick labels, etc.
+        ax.set_ylabel('Conteos')
+        ax.set_title('Conteos por grupo y respuesta')
+        ax.set_xticks(x)
+        ax.set_xticklabels(['Sí', 'No'])
+        ax.legend()
+
+        ax.bar_label(rects1, padding=3)
+        ax.bar_label(rects2, padding=3)
+
+        fig.tight_layout()
+
+        # Save plot
+        os.makedirs('images', exist_ok=True)
+        plt.savefig('images/identification_analysis.png')
+
+        plt.show()
     
     def create_contingency_table(self) -> np.array:
         """

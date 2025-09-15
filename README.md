@@ -81,3 +81,30 @@ La página web contará con:
 - **Muestra diversa:** Incluir participantes de distintos perfiles.
 - **Tareas realistas:** La negociación simula interacciones cotidianas.
 - **Compatibilidad multiplataforma:** Experiencia consistente en distintos dispositivos y navegadores.
+
+## Conclusiones del Análisis
+
+### Análisis de Tiempo de Respuesta
+El análisis del tiempo de respuesta mostró que no hay una diferencia significativa entre los grupos Persona–Persona y Persona–IA. Esto sugiere que el tiempo que los participantes tardan en identificar a su contraparte no varía considerablemente dependiendo de si interactúan con una persona o una IA.
+
+### Análisis de Identificación
+En el análisis de identificación, no se encontró una diferencia significativa en la capacidad de los participantes para identificar correctamente a su contraparte como persona o IA. Esto indica que los participantes no son significativamente mejores en identificar a una IA en comparación con una persona en este contexto de negociación.
+
+### Análisis de Correlaciones
+El análisis de correlaciones reveló algunas relaciones interesantes:
+- **Confianza en la Identificación y Tiempo de Respuesta**: Existe una correlación negativa moderada, lo que sugiere que a mayor confianza en la identificación, menor es el tiempo de respuesta.
+- **Familiaridad con IA y Percepción de Humanidad**: Se observó una correlación negativa débil, indicando que una mayor familiaridad con IA podría estar asociada con una menor percepción de humanidad en las interacciones.
+
+En general, las correlaciones entre las variables fueron débiles, lo que sugiere que no hay relaciones lineales fuertes entre ellas en este conjunto de datos.
+
+## Visualizaciones
+
+### Análisis de Identificación
+![Análisis de Identificación](images/identification_analysis.png)
+
+### Análisis de Tiempo de Respuesta
+![Métricas de Tiempo de Respuesta](images/response_time_metrics.png)
+![Distribución del Tiempo de Respuesta](images/response_time_distribution.png)
+
+### Análisis de Correlaciones
+![Mapa de Calor de Correlaciones](images/correlation_heatmap.png)
