@@ -31,6 +31,13 @@ El `IdentificationAnalyzer` es una herramienta diseñada para analizar datos de 
 - **Prueba de Chi-Cuadrado**: Se utiliza cuando ambos conjuntos de datos tienen más de 5 muestras.
 - **Prueba Exacta de Fisher**: Se utiliza cuando uno o ambos conjuntos de datos tienen 5 o menos muestras.
 
+## Criterios de Limpieza del Conjunto de Datos
+
+- **Eliminación de Nulos**: Se eliminan las filas con valores nulos.
+- **Eliminación de Duplicados**: Se eliminan las filas duplicadas.
+- **Eliminación de Outliers**: Se eliminan los valores atípicos que difieren más de 3 desviaciones estándar de la media.
+- **Filtrado por Idioma**: Se filtran las filas para incluir solo hablantes nativos de español.
+
 ## Dependencias
 
 - `pandas`

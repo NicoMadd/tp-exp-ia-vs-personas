@@ -21,11 +21,11 @@ class ResponseTimeAnalyzer:
         """
         Clean the datasets from outliers.
         """
-        # Remove outliers that differ more than 2 standard deviations from the mean
-        self.pp_data = self.pp_data[self.pp_data < self.pp_data.mean() + 2 * self.pp_data.std()]
-        self.pp_data = self.pp_data[self.pp_data > self.pp_data.mean() - 2 * self.pp_data.std()]
-        self.pia_data = self.pia_data[self.pia_data < self.pia_data.mean() + 2 * self.pia_data.std()]
-        self.pia_data = self.pia_data[self.pia_data > self.pia_data.mean() - 2 * self.pia_data.std()]
+        # Remove outliers that differ more than 3 standard deviations from the mean
+        self.pp_data = self.pp_data[self.pp_data < self.pp_data.mean() + 3 * self.pp_data.std()]
+        self.pp_data = self.pp_data[self.pp_data > self.pp_data.mean() - 3 * self.pp_data.std()]
+        self.pia_data = self.pia_data[self.pia_data < self.pia_data.mean() + 3 * self.pia_data.std()]
+        self.pia_data = self.pia_data[self.pia_data > self.pia_data.mean() - 3 * self.pia_data.std()]
 
 
     def describe_datasets(self) -> None:
