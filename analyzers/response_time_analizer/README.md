@@ -43,3 +43,10 @@ Asegúrate de que estos paquetes estén instalados en tu entorno de Python para 
 ```bash
 pip install pandas numpy scipy tabulate
 ```
+
+## Criterios de Limpieza del Conjunto de Datos
+
+- **Eliminación de Nulos**: Se eliminan las filas con valores nulos.
+- **Eliminación de Duplicados**: Se eliminan las filas duplicadas.
+- **Filtrado por Idioma**: Se filtran las filas para incluir solo hablantes nativos de español.
+- **Eliminación de Outliers**: Se eliminan los valores atípicos que difieren más de 3 desviaciones estándar de la media.

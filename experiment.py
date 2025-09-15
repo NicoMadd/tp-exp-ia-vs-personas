@@ -1,6 +1,7 @@
 import pandas as pd
 from analyzers.response_time_analizer import ResponseTimeAnalyzer
 from analyzers.identification_analyzer import IdentificationAnalyzer
+from analyzers.correlations_analyzer import CorrelationsAnalyzer
 from utils.utils import print_separator
 from constants import *
 
@@ -45,3 +46,8 @@ class Experiment:
         print_separator()
         response_time_analyzer = ResponseTimeAnalyzer(pp_dataset[RESPONSE_TIME_COLUMN], pia_dataset[RESPONSE_TIME_COLUMN])
         response_time_analyzer.analyze()
+
+    def analyze_correlations(self, data: pd.DataFrame):
+        print_separator()
+        correlations_analyzer = CorrelationsAnalyzer(data)
+        correlations_analyzer.analyze()
