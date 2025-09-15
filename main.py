@@ -5,7 +5,7 @@ def main():
     experiment = Experiment()
     experiment.describe()
     pp_dataset, pia_dataset = experiment.split()
-    experiment.analyze_identification()
+    experiment.analyze_identification(pp_dataset, pia_dataset)
     experiment.analyze_response_time(pp_dataset, pia_dataset)
     experiment.analyze_correlation()
 

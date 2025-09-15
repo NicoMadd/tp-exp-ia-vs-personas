@@ -1,5 +1,6 @@
 import pandas as pd
 from analyzers.response_time_analizer import ResponseTimeAnalyzer
+from analyzers.identification_analyzer import IdentificationAnalyzer
 from constants import *
 from utils.utils import print_separator
 
@@ -43,11 +44,12 @@ class Experiment:
         pia_dataset = data[data[CONDITION_COLUMN] == "P-IA"]
         return pp_dataset, pia_dataset
 
-    def analyze_identification(self):
+    def analyze_identification(self, pp_dataset: pd.DataFrame, pia_dataset: pd.DataFrame):
         print_separator()
-        #self.analyze_identification_hypothesis(self.data)
+        identification_analyzer = IdentificationAnalyzer(pp_dataset[IDENTIFICATION_COLUMN], pia_dataset[IDENTIFICATION_COLUMN])
+        identification_analyzer.analyze()
 
-    def analyze_response_time(self, pp_dataset, pia_dataset):
+    def analyze_response_time(self, pp_dataset: pd.DataFrame, pia_dataset: pd.DataFrame):
         print_separator()
         response_time_analyzer = ResponseTimeAnalyzer(pp_dataset[RESPONSE_TIME_COLUMN], pia_dataset[RESPONSE_TIME_COLUMN])
         response_time_analyzer.analyze()
